@@ -1,18 +1,124 @@
 <html>
 	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function(){
+      window.onload = function loadFunctions(){
+      	console.log(window.geemails);
+      	createDate();
+      	createSubject();
+      	createSender();
+        // createBodyButton();
+        mailCount();
+        createBody();
+        showMessage();
+        eventListener();
+      	
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+    };
+    function createDate(){
+    	for (var i = 0; i < window.geemails.length; i++){
+        // console.log("Date: " + geemails[i].date + " Subject: " +geemails[i].subject + " Sender: " + geemails[i].sender + " Body: " + geemails[i].body);
+      	var dateContent = document.createElement('p');
+      	dateContent.className = "listen";
+        var innerContents = [i] + ": " + window.geemails[i].date + " ";
+        dateContent.innerHTML = innerContents;
+      	// var menuElem = document.getElementsByClassName("menu");
+
+      	date.appendChild(dateContent);
+      
+      }
+}
+
+      function createSubject(){
+      	for (var i = 0; i < window.geemails.length; i++){
+      	var subjectContent = document.createElement('p');
+      	subjectContent.className = "listen";
+        var innerContents = [i] + ": " + window.geemails[i].subject + " ";
+      	subjectContent.innerHTML = innerContents;
+      	// var menuElem = document.getElementsByClassName("menu");
+      	subject.appendChild(subjectContent);
+      }
+}
+
+      function createSender(){
+      	for (var i = 0; i < window.geemails.length; i++){
+      	var senderContent = document.createElement('p');
+      	senderContent.className = "listen";
+        var innerContents = [i] + ": " + window.geemails[i].sender + " ";
+      	senderContent.innerHTML = innerContents;
+      	// var menuElem = document.getElementsByClassName("menu");
+      	sender.appendChild(senderContent);
+      }
+}
+
+//       function createBodyButton(){
+//         for (var i = 0; i < window.geemails.length; i++){
+//         var clicker = document.createElement('button');
+//         var innerContents = [i] + " View Contents";
+//         clicker.onclick = showMessage;
+//         clicker.innerHTML = innerContents;
+//         // var menuElem = document.getElementsByClassName("menu");
+//         body.appendChild(clicker);
+//       }
+// }
+      function mailCount(){
+        var counterr = document.getElementById("count");
+        counterr.innerHTML = geemails.length;
+}
+      function createBody(){
+        for (var i = 0; i < window.geemails.length; i++){
+      var bodyContents = document.createElement('p');
+      var innerContents = [i]+ ": " + window.geemails[i].body  + " ";
+      bodyContents.innerHTML = innerContents;
+      bodyContents.id = "hiddenBody" + [i];
+      bodyContents.className = "initialState";
+      body.appendChild(bodyContents);
+      }
+      }
+      
+var attachListener = document.getElementsByClassName("listen");
+	 for (var i = 0; i < window.geemails.length; i++){
+	attachListener[i].addEventListener("click", showMessage);
+	var showText = document.createElement('p');
+	showText.className = "hiddenBody"[i];
+
+}
+
+function showMessage(){
+  for (var i = 0; i < window.geemails.length; i++){
+    document.getElementById("hiddenBody" + [i]).classList.toggle("showMessageClass");
+}
+}
     </script>
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
+		<header>
+		<h1 id="title">Gee Mail</h1>
+	</header>
+		<nav>
+			<li class="menu">Fetch Mail</li>
+      <li class="menu">Mail Count <span id="count"></span></li>
+
+		</nav>
+
+    <div class="container" id="main">
+      <div class="column" id="date">
+        <h3>Date</h3>
+      </div>
+      <div class="column" id="subject">
+       <h3>Subject</h3> 
+      </div>
+      <div class="column" id="sender">
+        <h3>Sender</h3>
+      </div>
+      <div class="column" id="body">
+        <h3>Body</h3>
+
+      </div>
+
 		</div>
 	</body>
 </html>
