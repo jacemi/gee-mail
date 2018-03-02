@@ -6,53 +6,141 @@
     <script>
       window.onload = function loadFunctions(){
       	console.log(window.geemails);
-      	createDate();
-      	createSubject();
-      	createSender();
+      	// createDate();
+      	// createSubject();
+      	// createSender();
         // createBodyButton();
         mailCount();
-        createBody();
-        showMessage();
-        eventListener();
-      	
+        // createBody();
+        // showMessage();
+        // eventListener();
+      	createMailLine();
+      	insertDate();
+      	insertSender();
+      	insertSubject();
+      	insertBody();
+      	sortTable();
+      	afixListner();
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
     };
-    function createDate(){
-    	for (var i = 0; i < window.geemails.length; i++){
-        // console.log("Date: " + geemails[i].date + " Subject: " +geemails[i].subject + " Sender: " + geemails[i].sender + " Body: " + geemails[i].body);
-      	var dateContent = document.createElement('p');
-      	dateContent.className = "listen";
-        var innerContents = [i] + ": " + window.geemails[i].date + " ";
-        dateContent.innerHTML = innerContents;
-      	// var menuElem = document.getElementsByClassName("menu");
+//     function createDate(){
+//     	for (var i = 0; i < window.geemails.length; i++){
+//         // console.log("Date: " + geemails[i].date + " Subject: " +geemails[i].subject + " Sender: " + geemails[i].sender + " Body: " + geemails[i].body);
+//       	var dateContent = document.createElement('p');
+//       	dateContent.className = "listen";
+//         var innerContents = [i] + ": " + window.geemails[i].date + " ";
+//         dateContent.innerHTML = innerContents;
+//       	// var menuElem = document.getElementsByClassName("menu");
 
-      	date.appendChild(dateContent);
+//       	date.appendChild(dateContent);
       
-      }
+//       }
+// }
+
+function createMailLine(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var containerElem = document.createElement('tr');
+		containerElem.className = 'line';
+		tableSort.appendChild(containerElem);
+	}
 }
 
-      function createSubject(){
-      	for (var i = 0; i < window.geemails.length; i++){
-      	var subjectContent = document.createElement('p');
-      	subjectContent.className = "listen";
-        var innerContents = [i] + ": " + window.geemails[i].subject + " ";
-      	subjectContent.innerHTML = innerContents;
-      	// var menuElem = document.getElementsByClassName("menu");
-      	subject.appendChild(subjectContent);
-      }
+function insertDate(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var mailDate = document.createElement('td');
+		mailDate.className = 'mailDate';
+		mailDate.innerHTML = window.geemails[i].date;
+		document.getElementsByClassName('line')[i].appendChild(mailDate);
+	}
+}
+function insertSender(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var mailSender = document.createElement('td');
+		mailSender.className = 'mailSender';
+		mailSender.innerHTML = window.geemails[i].sender;
+		document.getElementsByClassName('line')[i].appendChild(mailSender);
+
+	}
 }
 
-      function createSender(){
-      	for (var i = 0; i < window.geemails.length; i++){
-      	var senderContent = document.createElement('p');
-      	senderContent.className = "listen";
-        var innerContents = [i] + ": " + window.geemails[i].sender + " ";
-      	senderContent.innerHTML = innerContents;
-      	// var menuElem = document.getElementsByClassName("menu");
-      	sender.appendChild(senderContent);
-      }
+function insertSubject(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var mailSubject = document.createElement('td');
+		mailSubject.className = 'mailSubject';
+		mailSubject.innerHTML = window.geemails[i].subject;
+		document.getElementsByClassName('line')[i].appendChild(mailSubject);
+	}
 }
+
+function insertBody(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var mailBody = document.createElement('td');
+		mailBody.className = 'mailBody';
+		mailBody.innerHTML = window.geemails[i].body;
+		document.getElementsByClassName('line')[i].appendChild(mailBody);
+	}
+}
+
+
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("tableSort");
+  switching = true;
+  dir = "asc"; 
+  while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("td");
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;      
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+//       function createSubject(){
+//       	for (var i = 0; i < window.geemails.length; i++){
+//       	var subjectContent = document.createElement('p');
+//       	subjectContent.className = "listen";
+//         var innerContents = [i] + ": " + window.geemails[i].subject + " ";
+//       	subjectContent.innerHTML = innerContents;
+//       	// var menuElem = document.getElementsByClassName("menu");
+//       	subject.appendChild(subjectContent);
+//       }
+// }
+
+//       function createSender(){
+//       	for (var i = 0; i < window.geemails.length; i++){
+//       	var senderContent = document.createElement('p');
+//       	senderContent.className = "listen";
+//         var innerContents = [i] + ": " + window.geemails[i].sender + " ";
+//       	senderContent.innerHTML = innerContents;
+//       	// var menuElem = document.getElementsByClassName("menu");
+//       	sender.appendChild(senderContent);
+//       }
+// }
 
 //       function createBodyButton(){
 //         for (var i = 0; i < window.geemails.length; i++){
@@ -68,30 +156,30 @@
         var counterr = document.getElementById("count");
         counterr.innerHTML = geemails.length;
 }
-      function createBody(){
-        for (var i = 0; i < window.geemails.length; i++){
-      var bodyContents = document.createElement('p');
-      var innerContents = [i]+ ": " + window.geemails[i].body  + " ";
-      bodyContents.innerHTML = innerContents;
-      bodyContents.id = "hiddenBody" + [i];
-      bodyContents.className = "initialState";
-      body.appendChild(bodyContents);
-      }
-      }
-      
-var attachListener = document.getElementsByClassName("listen");
+      // function createBody(){
+      //   for (var i = 0; i < window.geemails.length; i++){
+      // var bodyContents = document.createElement('p');
+      // var innerContents = [i]+ ": " + window.geemails[i].body  + " ";
+      // bodyContents.innerHTML = innerContents;
+      // bodyContents.id = "hiddenBody" + [i];
+      // bodyContents.className = "initialState";
+      // body.appendChild(bodyContents);
+      // }
+      // }
+
+ function afixListner(){      
+var attachListener = document.getElementsByClassName("mailDate", "mailSender", "mailSubject", "mailBody");
 	 for (var i = 0; i < window.geemails.length; i++){
 	attachListener[i].addEventListener("click", showMessage);
-	var showText = document.createElement('p');
-	showText.className = "hiddenBody"[i];
+}
+}
+// }
 
-}
-
-function showMessage(){
-  for (var i = 0; i < window.geemails.length; i++){
-    document.getElementById("hiddenBody" + [i]).classList.toggle("showMessageClass");
-}
-}
+// function showMessage(){
+//   for (var i = 0; i < window.geemails.length; i++){
+//     document.getElementById("hiddenBody" + [i]).classList.toggle("showMessageClass");
+// }
+// }
     </script>
 	</head>
 	<body>
@@ -99,12 +187,22 @@ function showMessage(){
 		<h1 id="title">Gee Mail</h1>
 	</header>
 		<nav>
-			<li class="menu">Fetch Mail</li>
       <li class="menu">Mail Count <span id="count"></span></li>
 
 		</nav>
+<table class="sortTable" id="tableSort" style="width:100%">
+	<tr id="tableHeaders">
+		<th onclick="sortTable(0)">Date</th>
+		<th onclick="sortTable(1)">Sender</th>
+		<th onclick="sortTable(2)">Subject</th>
+		<th onclick="sortTable(3)">Body</th>
+	</tr>
 
-    <div class="container" id="main">
+
+
+
+</table>
+<!--     <div class="container" id="main">
       <div class="column" id="date">
         <h3>Date</h3>
       </div>
@@ -116,9 +214,7 @@ function showMessage(){
       </div>
       <div class="column" id="body">
         <h3>Body</h3>
-
       </div>
-
-		</div>
+    </div> -->
 	</body>
 </html>

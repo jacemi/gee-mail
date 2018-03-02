@@ -27,7 +27,7 @@ nav{
 	width: 50%;
 }
 
-.column {
+/*.column {
     float: left;
     width: 25%;
 }
@@ -36,10 +36,28 @@ nav{
     content: "";
     display: table;
     clear: both;
+}*/
+
+/*.mailBody {
+  text-overflow: ellipsis;
+}*/
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
 }
 
-#body {
-	  display: block;
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
 }
 
 .showMessageClass {    
