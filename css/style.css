@@ -27,6 +27,60 @@ nav{
 	width: 50%;
 }
 
+.date{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.sender{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.subject{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.mailBody{
+  /* display: none; */
+  float: right;
+  width: 60%
+  background-color: orange;
+  padding: 10px;
+
+}
+
+.newDate{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.newSender{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.newSubject{
+  color: blue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.newMailBody{
+  /* display: none; */
+  float: right;
+  width: 60%
+  background-color: orange;
+  padding: 10px;
+
+}
+
 /*.column {
     float: left;
     width: 25%;
@@ -41,7 +95,7 @@ nav{
 /*.mailBody {
   text-overflow: ellipsis;
 }*/
-table {
+/*table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
@@ -58,8 +112,8 @@ th, td {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
+}*/
+/*
 .line:hover{
     background-color: yellow;
 }
@@ -75,5 +129,5 @@ tr:nth-child(even) {
 
 .initialState {
     display: none;
-}
+}*/
 

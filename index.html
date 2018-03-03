@@ -4,30 +4,34 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function loadFunctions(){
+      window.onload = function(){
       	console.log(window.geemails);
       	// createDate();
       	// createSubject();
       	// createSender();
         // createBodyButton();
-        mailCount();
+        // mailCount();
         // createBody();
         // showMessage();
         // eventListener();
-      	createMailLine();
-      	insertDate();
-      	insertSender();
-      	insertSubject();
-      	insertBody();
+      	// createMailLine();
+      	// insertDate();
+      	// insertSender();
+      	// insertSubject();
+      	// insertBody();
+      	// insertGenDate();
+      	// insertGenSender();
+      	// insertGenSubject();
+      	// insertGenBody();
       	// sortTable();
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        var attachListener = document.getElementsByClassName("line");
+//         var attachListener = document.getElementsByClassName("line");
 
-	 for (var i = 0; i < window.geemails.length; i++){
-	attachListener[i].addEventListener("click", popupBox);
-}
-    };
+// 	 for (var i = 0; i < (window.geemails.length +1); i++){
+// 	attachListener[i].addEventListener("click", popupBox);
+// }
+//     };
 //     function createDate(){
 //     	for (var i = 0; i < window.geemails.length; i++){
 //         // console.log("Date: " + geemails[i].date + " Subject: " +geemails[i].subject + " Sender: " + geemails[i].sender + " Body: " + geemails[i].body);
@@ -42,54 +46,85 @@
 //       }
 // }
 
-function testClick(){
-	console.log("test");
-}
+// function testClick(){
+// 	console.log("test");
+// }
 
-function createMailLine(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var containerElem = document.createElement('tr');
-		containerElem.className = 'line';
-		tableSort.appendChild(containerElem);
-	}
-}
+// console.log(getNewMessage());
 
-function insertDate(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var mailDate = document.createElement('td');
-		mailDate.className = 'mailDate';
-		mailDate.innerHTML = window.geemails[i].date;
-		document.getElementsByClassName('line')[i].appendChild(mailDate);
-	}
-}
-function insertSender(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var mailSender = document.createElement('td');
-		mailSender.className = 'mailSender';
-		mailSender.innerHTML = window.geemails[i].sender;
-		document.getElementsByClassName('line')[i].appendChild(mailSender);
+// function createMailLine(){
+// 	for (var i = 0; i < (window.geemails.length + 1); i++){
+// 		var containerElem = document.createElement('tr');
+// 		containerElem.className = 'line';
+// 		tableSort.appendChild(containerElem);
+// 	}
+// }
 
-	}
-}
+// function insertDate(){
+// 	for (var i = 0; i < window.geemails.length; i++){
+// 		var mailDate = document.createElement('td');
+// 		mailDate.className = 'mailDate';
+// 		mailDate.innerHTML = window.geemails[i].date;
+// 		document.getElementsByClassName('line')[i].appendChild(mailDate);
+// 	}
+// }
+// function insertSender(){
+// 	for (var i = 0; i < window.geemails.length; i++){
+// 		var mailSender = document.createElement('td');
+// 		mailSender.className = 'mailSender';
+// 		mailSender.innerHTML = window.geemails[i].sender;
+// 		document.getElementsByClassName('line')[i].appendChild(mailSender);
 
-function insertSubject(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var mailSubject = document.createElement('td');
-		mailSubject.className = 'mailSubject';
-		mailSubject.innerHTML = window.geemails[i].subject;
-		document.getElementsByClassName('line')[i].appendChild(mailSubject);
-	}
-}
+// 	}
+// }
 
-function insertBody(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var mailBody = document.createElement('td');
-		mailBody.className = 'mailBody';
-		mailBody.innerHTML = window.geemails[i].body;
-		document.getElementsByClassName('line')[i].appendChild(mailBody);
-	}
-}
+// function insertSubject(){
+// 	for (var i = 0; i < window.geemails.length; i++){
+// 		var mailSubject = document.createElement('td');
+// 		mailSubject.className = 'mailSubject';
+// 		mailSubject.innerHTML = window.geemails[i].subject;
+// 		document.getElementsByClassName('line')[i].appendChild(mailSubject);
+// 	}
+// }
 
+// function insertBody(){
+// 	for (var i = 0; i < window.geemails.length; i++){
+// 		var mailBody = document.createElement('td');
+// 		mailBody.className = 'mailBody';
+// 		mailBody.innerHTML = window.geemails[i].body;
+// 		document.getElementsByClassName('line')[i].appendChild(mailBody);
+// 	}
+// }
+
+// function insertGenDate(){
+// 	var mailDate = document.createElement('td');
+// 	mailDate.className = 'mailDate';
+// 	mailDate.innerHTML = window.getNewMessage.date;
+// 	document.getElementsByClassName('line').appendChild(mailDate);
+// }
+
+// function insertGenSender(){
+// 	var mailSender = document.createElement('td');
+// 	mailSender.className = 'mailSender';
+// 	mailSender.innerHTML = window.getNewMessage.sender;
+// 	document.getElementsByClassName('line').appendChild(mailSender);
+// }
+
+// function insertGenSubject(){
+// 	var mailSubject = document.createElement('td');
+// 	mailSubject.className = 'mailSubject';
+// 	mailSubject.innerHTML = window.getNewMessage.subject;
+// 	document.getElementsByClassName('line').appendChild(mailSubject);
+// }
+
+// function insertGenBody(){
+// 	var mailBody = document.createElement('td');
+// 	mailBody.className = 'mailBody';
+// 	mailBody.innerHTML = window.getNewMessage.sender;
+// 	document.getElementsByClassName('line').appendChild(mailBody);
+// }
+
+// console.log(window.generateMessage(date));
 
 // function sortTable(n) {
 //   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -160,10 +195,10 @@ function insertBody(){
 //         body.appendChild(clicker);
 //       }
 // }
-      function mailCount(){
-        var counterr = document.getElementById("count");
-        counterr.innerHTML = geemails.length;
-}
+//       function mailCount(){
+//       	var totalCounter = document.body.getElementById("count");
+//         totalCounter.innerHTML = geemails.length + getMail.length;
+// }
       // function createBody(){
       //   for (var i = 0; i < window.geemails.length; i++){
       // var bodyContents = document.createElement('p');
@@ -174,20 +209,121 @@ function insertBody(){
       // body.appendChild(bodyContents);
       // }
       // }
-     
+
+ 		// var getDate = document.body.getElementsByClassName('date');
+ 		// var getNewDate = document.body.getElementsByClassName('newDate');
+   //    	var totalCounter = document.body.getElementById("count");
+   //    	var allCount = ('.date').length + 
+   //      totalCounter.innerHTML = ('.date').length
+   count.innerHTML = geemails.length
+
+for(var i = 0; i<geemails.length; i++){
+  
+  var mailDate = document.createElement('div');
+  mailDate.className = 'date';
+  mailDate.innerHTML = "Date: " + geemails[i].date;
+  document.body.appendChild(mailDate);
+
+  var mailSender = document.createElement('div');
+  mailSender.className = 'sender';
+  mailSender.innerHTML = "Sender: " +geemails[i].sender;
+  document.body.appendChild(mailSender);
+
+  var mailSubject = document.createElement('div');
+  mailSubject.className = 'subject';
+  mailSubject.innerHTML = "Subject: " + geemails[i].subject;
+  document.body.appendChild(mailSubject);
+  
+  var mailBody = document.createElement('div');
+  mailBody.className = 'mailBody';
+  mailBody.innerHTML = "Body: " + geemails[i].body;
+  mailBody.style.display = "none";
+  mailBody.style.color = "black";
+  mailSubject.appendChild(mailBody);
+
+var getMail = document.getElementsByClassName('subject'); 
+  getMail[i].addEventListener('click', showBody)
+}
+
+setInterval(function newMessage(){
+	var newDate = getNewMessage().date;
+	var createDateDiv = document.createElement('div');
+	createDateDiv.className = 'newDate';
+	createDateDiv.innerHTML = "Date: " + newDate;
+	document.body.appendChild(createDateDiv);
+
+	var newSender = getNewMessage().sender;
+	var createSenderDiv = document.createElement('div');
+	createSenderDiv.className = 'newSender';
+	createSenderDiv.innerHTML = "Sender: " +newSender;
+	document.body.appendChild(createSenderDiv);
+
+
+	var newSubject = getNewMessage().subject;
+	var createSubjectDiv = document.createElement('div');
+	createSubjectDiv.className = 'newSubject';
+	createSubjectDiv.innerHTML = "Subject: " + newSubject;
+	document.body.appendChild(createSubjectDiv);
+
+	var newBody = getNewMessage().body;
+	var createBodyDiv = document.createElement('div');
+	createBodyDiv.className = 'newMailBody';
+	createBodyDiv.innerHTML = "Body: " + newBody;
+	createBodyDiv.style.display = "none";
+	createBodyDiv.style.color = "black";
+	createSubjectDiv.appendChild(createBodyDiv);
+
+	var getMail = document.getElementsByClassName('newSubject');
+
+	for(var i = 0; i<getMail.length; i++){ 
+  getMail[i].addEventListener('click', showNewDivBody)
+
+
+function showNewDivBody(){
+	 var displayBody = this.querySelectorAll('.newMailBody')[0];
+  if(displayBody.style.display === 'none'){
+    displayBody.style.display = 'block';
+  }else{
+    displayBody.style.display = 'none';
+  } 
+}
+
+}
+count.innerHTML++;
+
+}, 3000);
+
+
+
+//an array of div elements with class name of 'premier'
+
+// for(var i = 0; i<getMail.length; i++){
+//   getMail[i].addEventListener('click', showBody)
+// }
+
+function showBody(){
+  var displayBody = this.querySelectorAll('.mailBody')[0];
+  if(displayBody.style.display === 'none'){
+    displayBody.style.display = 'block';
+  }else{
+    displayBody.style.display = 'none';
+  } 
+}
+
 
 
 // }
 
-function popupBox(){
-	for (var i = 0; i < window.geemails.length; i++){
-		var getDate = document.getElementsByClassName('mailDate')[i].innerHTML;
-		var getSender = document.getElementsByClassName('mailSender')[i].innerHTML;
-		var getSubject = document.getElementsByClassName('mailSubject')[i].innerHTML;
-		var getBody = document.getElementsByClassName('mailBody')[i].innerHTML;
-		alert("Date: " + getDate + "\n" + "Sender: " + getSender  + "\n" + "Subject: " + getSubject + "\n" + "Body: " + getBody);
-	}
-}
+// function popupBox(){
+// 	for (var i = 0; i < (window.geemails.length +1); i++){
+// 		var getDate = document.getElementsByClassName('mailDate')[i].innerHTML;
+// 		var getSender = document.getElementsByClassName('mailSender')[i].innerHTML;
+// 		var getSubject = document.getElementsByClassName('mailSubject')[i].innerHTML;
+// 		var getBody = document.getElementsByClassName('mailBody')[i].innerHTML;
+// 		alert("Date: " + getDate + "\n" + "Sender: " + getSender  + "\n" + "Subject: " + getSubject + "\n" + "Body: " + getBody);
+// 	}
+// }
+
 
 
 // function showMessage(){
@@ -195,6 +331,8 @@ function popupBox(){
 //     document.getElementById("mailBody" + [i]).classList.toggle("showMessageClass");
 // }
 // }
+}
+
     </script>
 	</head>
 	<body>
@@ -205,7 +343,7 @@ function popupBox(){
       <li class="menu">Messages in Inbox: <span id="count"></span></li>
 
 		</nav>
-<table class="sortTable" id="tableSort" style="width:100%">
+<!-- <table class="sortTable" id="tableSort" style="width:100%">
 	<tr id="<tableHeaders">
 		<th <onclick="sortTable(0)">Date</th>
 		<th <onclick="sortTable(1)">Sender</th>
@@ -216,7 +354,7 @@ function popupBox(){
 
 
 
-</table>
+</table> -->
 <!--     <div class="container" id="main">
       <div class="column" id="date">
         <h3>Date</h3>
