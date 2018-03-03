@@ -45,6 +45,7 @@ table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
+    table-layout: fixed;
 }
 
 th {
@@ -54,6 +55,13 @@ th {
 th, td {
     text-align: left;
     padding: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.line:hover{
+    background-color: yellow;
 }
 
 tr:nth-child(even) {
@@ -68,3 +76,4 @@ tr:nth-child(even) {
 .initialState {
     display: none;
 }
+

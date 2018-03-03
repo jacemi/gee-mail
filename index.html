@@ -19,10 +19,14 @@
       	insertSender();
       	insertSubject();
       	insertBody();
-      	sortTable();
-      	afixListner();
+      	// sortTable();
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        var attachListener = document.getElementsByClassName("line");
+
+	 for (var i = 0; i < window.geemails.length; i++){
+	attachListener[i].addEventListener("click", popupBox);
+}
     };
 //     function createDate(){
 //     	for (var i = 0; i < window.geemails.length; i++){
@@ -37,6 +41,10 @@
       
 //       }
 // }
+
+function testClick(){
+	console.log("test");
+}
 
 function createMailLine(){
 	for (var i = 0; i < window.geemails.length; i++){
@@ -83,42 +91,42 @@ function insertBody(){
 }
 
 
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("tableSort");
-  switching = true;
-  dir = "asc"; 
-  while (switching) {
-    switching = false;
-    rows = table.getElementsByTagName("td");
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("td")[n];
-      y = rows[i + 1].getElementsByTagName("td")[n];
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldSwitch= true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          shouldSwitch= true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;      
-    } else {
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
+// function sortTable(n) {
+//   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+//   table = document.getElementById("tableSort");
+//   switching = true;
+//   dir = "asc"; 
+//   while (switching) {
+//     switching = false;
+//     rows = table.getElementsByTagName("td");
+//     for (i = 1; i < (rows.length - 1); i++) {
+//       shouldSwitch = false;
+//       x = rows[i].getElementsByTagName("td")[n];
+//       y = rows[i + 1].getElementsByTagName("td")[n];
+//       if (dir == "asc") {
+//         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+//           shouldSwitch= true;
+//           break;
+//         }
+//       } else if (dir == "desc") {
+//         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+//           shouldSwitch= true;
+//           break;
+//         }
+//       }
+//     }
+//     if (shouldSwitch) {
+//       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+//       switching = true;
+//       switchcount ++;      
+//     } else {
+//       if (switchcount == 0 && dir == "asc") {
+//         dir = "desc";
+//         switching = true;
+//       }
+//     }
+//   }
+// }
 
 //       function createSubject(){
 //       	for (var i = 0; i < window.geemails.length; i++){
@@ -166,18 +174,25 @@ function sortTable(n) {
       // body.appendChild(bodyContents);
       // }
       // }
+     
 
- function afixListner(){      
-var attachListener = document.getElementsByClassName("mailDate", "mailSender", "mailSubject", "mailBody");
-	 for (var i = 0; i < window.geemails.length; i++){
-	attachListener[i].addEventListener("click", showMessage);
-}
-}
+
 // }
+
+function popupBox(){
+	for (var i = 0; i < window.geemails.length; i++){
+		var getDate = document.getElementsByClassName('mailDate')[i].innerHTML;
+		var getSender = document.getElementsByClassName('mailSender')[i].innerHTML;
+		var getSubject = document.getElementsByClassName('mailSubject')[i].innerHTML;
+		var getBody = document.getElementsByClassName('mailBody')[i].innerHTML;
+		alert("Date: " + getDate + "\n" + "Sender: " + getSender  + "\n" + "Subject: " + getSubject + "\n" + "Body: " + getBody);
+	}
+}
+
 
 // function showMessage(){
 //   for (var i = 0; i < window.geemails.length; i++){
-//     document.getElementById("hiddenBody" + [i]).classList.toggle("showMessageClass");
+//     document.getElementById("mailBody" + [i]).classList.toggle("showMessageClass");
 // }
 // }
     </script>
@@ -187,15 +202,15 @@ var attachListener = document.getElementsByClassName("mailDate", "mailSender", "
 		<h1 id="title">Gee Mail</h1>
 	</header>
 		<nav>
-      <li class="menu">Mail Count <span id="count"></span></li>
+      <li class="menu">Messages in Inbox: <span id="count"></span></li>
 
 		</nav>
 <table class="sortTable" id="tableSort" style="width:100%">
-	<tr id="tableHeaders">
-		<th onclick="sortTable(0)">Date</th>
-		<th onclick="sortTable(1)">Sender</th>
-		<th onclick="sortTable(2)">Subject</th>
-		<th onclick="sortTable(3)">Body</th>
+	<tr id="<tableHeaders">
+		<th <onclick="sortTable(0)">Date</th>
+		<th <onclick="sortTable(1)">Sender</th>
+		<th <onclick="sortTable(2)">Subject</th>
+		<th <onclick="sortTable(3)">Body</th>
 	</tr>
 
 
